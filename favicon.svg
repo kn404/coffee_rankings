@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .bean { fill: #161513; }
+    .crease { stroke: #fbfaf7; }
+    @media (prefers-color-scheme: dark) {
+      .bean { fill: #ecebe6; }
+      .crease { stroke: #141412; }
+    }
+  </style>
+  <g transform="rotate(-35 16 16)">
+    <ellipse class="bean" cx="16" cy="16" rx="9.5" ry="13.5"/>
+    <path class="crease" d="M16 4.5 C 11.5 11, 20.5 21, 16 27.5" fill="none" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+</svg>
