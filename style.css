@@ -241,6 +241,25 @@ button {
   flex: none;
 }
 
+.search {
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 8px 0;
+  font: inherit;
+  font-size: 18px;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 120ms;
+}
+.search::placeholder { color: var(--faint); font-style: italic; }
+.search:focus { border-bottom-color: var(--ink); }
+
+.empty,
 .error {
   padding: 24px 0;
   color: var(--muted);

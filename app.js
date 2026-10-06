@@ -8,7 +8,8 @@ const state = {
   shops: [],
   weights: {},        // { catId: { subId: number } } — sub weights are absolute
   presetId: null,     // id of the preset the weights still match, or null for custom
-  expanded: new Set() // shop names whose breakdown is open
+  expanded: new Set(), // shop names whose breakdown is open
+  query: ""
 };
 
 // ---------- weights ----------
@@ -143,19 +144,30 @@ const el = (tag, attrs = {}, ...children) => {
 
 const fmt = (n) => (n == null ? "—" : n.toFixed(1));
 const pct = (n) => `${Math.round(n * 100)}%`;
+// Case- and accent-insensitive matching ("cafe" finds "Café").
+const normalize = (s) => s.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
 
 function renderRanking() {
   const max = state.config.scale.max;
   const results = state.shops
     .map(scoreShop)
-    .sort((a, b) => (b.total ?? -1) - (a.total ?? -1));
+    .sort((a, b) => (b.total ?? -1) - (a.total ?? -1))
+    .map((r, i) => ({ ...r, rank: i + 1 })); // rank before filtering, so search keeps true positions
 
-  document.getElementById("list-meta").textContent =
-    `${results.length} places`;
+  const q = normalize(state.query.trim());
+  const shown = q ? results.filter((r) => normalize(r.shop.name).includes(q)) : results;
+
+  document.getElementById("list-meta").textContent = q
+    ? `${shown.length} of ${results.length} places`
+    : `${results.length} places`;
 
   const list = document.getElementById("ranking");
+  if (!shown.length) {
+    list.replaceChildren(el("li", { class: "empty" }, `Nothing matches “${state.query.trim()}”.`));
+    return;
+  }
   list.replaceChildren(
-    ...results.map((r, i) => {
+    ...shown.map((r) => {
       const open = state.expanded.has(r.shop.name);
       const bar = el("div", { class: "bar", "aria-hidden": "true" },
         r.cats.map((c) =>
@@ -196,7 +208,7 @@ function renderRanking() {
 
       return el("li", { class: `shop${open ? " open" : ""}` },
         el("button", { class: "shop-main", "aria-expanded": String(open), onclick: toggle },
-          el("span", { class: "rank num" }, String(i + 1).padStart(2, "0")),
+          el("span", { class: "rank num" }, String(r.rank).padStart(2, "0")),
           el("span", { class: "shop-body" },
             el("span", { class: "shop-title" },
               el("span", { class: "shop-name" }, r.shop.name),
@@ -349,6 +361,11 @@ async function main() {
   if (window.matchMedia("(max-width: 900px)").matches) {
     document.getElementById("weights-box").open = false;
   }
+
+  document.getElementById("search").addEventListener("input", (e) => {
+    state.query = e.target.value;
+    renderRanking();
+  });
 
   renderPresets();
   renderControls();
