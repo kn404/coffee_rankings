@@ -1,0 +1,88 @@
+{
+  "shops": [
+    {
+      "name": "Northside Roasters",
+      "area": "Old Town",
+      "description": "Small roastery with a six-seat bar. Rotating single origins on espresso and two pour-overs a day. Not a place to linger.",
+      "scores": {
+        "coffee": { "espresso": 9.5, "milk": 8.5, "filter": 9.5, "beans": 9.5 },
+        "space": { "interior": 6, "comfort": 3, "calm": 5, "work": 1 },
+        "service": { "friendliness": 7, "knowledge": 10, "speed": 7 },
+        "food": { "pastries": 5 },
+        "value": { "price": 4, "worth": 8 }
+      }
+    },
+    {
+      "name": "Kaffe Lindgren",
+      "area": "Harbour",
+      "description": "Big windows over the water, long communal tables and a solid house blend. Busy on weekends.",
+      "scores": {
+        "coffee": { "espresso": 7, "milk": 8, "filter": 6.5, "beans": 6 },
+        "space": { "interior": 9.5, "comfort": 8, "calm": 5, "work": 6 },
+        "service": { "friendliness": 8, "knowledge": 6, "speed": 6 },
+        "food": { "pastries": 8.5, "savoury": 8 },
+        "value": { "price": 5, "worth": 7 }
+      }
+    },
+    {
+      "name": "The Quiet Room",
+      "area": "University",
+      "description": "Basement café near campus. Plenty of outlets, reliable Wi-Fi and a no-music policy. Coffee is fine.",
+      "scores": {
+        "coffee": { "espresso": 6, "milk": 6.5, "filter": 7 },
+        "space": { "interior": 6, "comfort": 8.5, "calm": 9.5, "work": 10 },
+        "service": { "friendliness": 7, "knowledge": 5, "speed": 7 },
+        "food": { "pastries": 5, "savoury": 6.5 },
+        "value": { "price": 8, "worth": 7.5 }
+      }
+    },
+    {
+      "name": "Bar Fiore",
+      "area": "Central Station",
+      "description": "Standing-room Italian espresso bar. In and out in three minutes, cheapest cortado in town.",
+      "scores": {
+        "coffee": { "espresso": 8, "milk": 7.5, "beans": 5 },
+        "space": { "interior": 7, "comfort": 2, "calm": 3, "work": 0 },
+        "service": { "friendliness": 8, "knowledge": 6, "speed": 10 },
+        "food": { "pastries": 7.5 },
+        "value": { "price": 9.5, "worth": 9 }
+      }
+    },
+    {
+      "name": "Morgenbrød",
+      "area": "Westend",
+      "description": "Bakery first, café second. Outstanding cardamom buns and sourdough sandwiches; the coffee keeps up.",
+      "scores": {
+        "coffee": { "espresso": 7, "milk": 7.5, "filter": 7, "beans": 6 },
+        "space": { "interior": 8, "comfort": 6.5, "calm": 4.5, "work": 3 },
+        "service": { "friendliness": 9, "knowledge": 6, "speed": 6.5 },
+        "food": { "pastries": 10, "savoury": 9 },
+        "value": { "price": 6, "worth": 8.5 }
+      }
+    },
+    {
+      "name": "Field Notes",
+      "area": "Old Town",
+      "description": "Minimalist specialty shop with guest roasters every month. Excellent filter, slightly precious.",
+      "scores": {
+        "coffee": { "espresso": 8.5, "milk": 8, "filter": 10, "beans": 9 },
+        "space": { "interior": 9, "comfort": 6, "calm": 7.5, "work": 4 },
+        "service": { "friendliness": 6, "knowledge": 9.5, "speed": 4.5 },
+        "food": { "pastries": 6.5 },
+        "value": { "price": 3, "worth": 7 }
+      }
+    },
+    {
+      "name": "Corner Cup",
+      "area": "Eastside",
+      "description": "Neighbourhood spot that does everything reasonably well. Friendly regulars, decent lunch.",
+      "scores": {
+        "coffee": { "espresso": 6.5, "milk": 7, "filter": 6, "beans": 5 },
+        "space": { "interior": 6.5, "comfort": 7, "calm": 6, "work": 7 },
+        "service": { "friendliness": 9, "knowledge": 5.5, "speed": 7.5 },
+        "food": { "pastries": 6.5, "savoury": 7.5 },
+        "value": { "price": 8, "worth": 8 }
+      }
+    }
+  ]
+}

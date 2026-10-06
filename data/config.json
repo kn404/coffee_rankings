@@ -1,0 +1,129 @@
+{
+  "scale": { "min": 0, "max": 10 },
+  "maxWeight": 10,
+  "categories": [
+    {
+      "id": "coffee",
+      "label": "Coffee",
+      "description": "What ends up in the cup.",
+      "color": "#7a5a43",
+      "subcategories": [
+        { "id": "espresso", "label": "Espresso", "description": "Straight shots: balance, sweetness, consistency." },
+        { "id": "milk", "label": "Milk drinks", "description": "Flat whites, cortados, cappuccinos. Texture and ratio." },
+        { "id": "filter", "label": "Filter", "description": "Batch brew and pour-over." },
+        { "id": "beans", "label": "Beans", "description": "Roast quality, rotation, retail selection." }
+      ]
+    },
+    {
+      "id": "space",
+      "label": "Space",
+      "description": "The room you drink it in.",
+      "color": "#5c7466",
+      "subcategories": [
+        { "id": "interior", "label": "Interior", "description": "Design, light, how it feels to walk in." },
+        { "id": "comfort", "label": "Comfort", "description": "Seating, room to spread out, temperature." },
+        { "id": "calm", "label": "Calm", "description": "Noise level and crowding. Higher is quieter." },
+        { "id": "work", "label": "Work-friendly", "description": "Wi-Fi, outlets, laptop policy." }
+      ]
+    },
+    {
+      "id": "service",
+      "label": "Service",
+      "description": "The people behind the bar.",
+      "color": "#5f6888",
+      "subcategories": [
+        { "id": "friendliness", "label": "Friendliness", "description": "Warmth and attitude." },
+        { "id": "knowledge", "label": "Knowledge", "description": "Can they talk you through the menu?" },
+        { "id": "speed", "label": "Speed", "description": "How long from order to cup." }
+      ]
+    },
+    {
+      "id": "food",
+      "label": "Food",
+      "description": "What you eat alongside.",
+      "color": "#a3803f",
+      "subcategories": [
+        { "id": "pastries", "label": "Pastries", "description": "Croissants, buns, cakes." },
+        { "id": "savoury", "label": "Savoury", "description": "Sandwiches, toast, lunch." }
+      ]
+    },
+    {
+      "id": "value",
+      "label": "Value",
+      "description": "What it costs, and whether it's worth it.",
+      "color": "#8c5656",
+      "subcategories": [
+        { "id": "price", "label": "Price", "description": "Absolute price level. Higher is cheaper." },
+        { "id": "worth", "label": "Worth it", "description": "Quality relative to price." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "id": "balanced",
+      "label": "Balanced",
+      "description": "Every category counts the same.",
+      "weights": { "coffee": 10, "space": 10, "service": 10, "food": 10, "value": 10 }
+    },
+    {
+      "id": "purist",
+      "label": "Coffee purist",
+      "description": "Only the cup matters. Everything else is a tiebreaker.",
+      "weights": {
+        "coffee": { "espresso": 10, "milk": 5, "filter": 10, "beans": 8 },
+        "space": 2,
+        "service": { "friendliness": 1, "knowledge": 4, "speed": 0 },
+        "food": 0,
+        "value": 2
+      }
+    },
+    {
+      "id": "laptop",
+      "label": "Laptop day",
+      "description": "Somewhere to sit for four hours without being glared at.",
+      "weights": {
+        "coffee": 10,
+        "space": { "interior": 3, "comfort": 9, "calm": 8, "work": 10 },
+        "service": { "friendliness": 4, "knowledge": 0, "speed": 1 },
+        "food": { "pastries": 2, "savoury": 5 },
+        "value": 5
+      }
+    },
+    {
+      "id": "slow-morning",
+      "label": "Slow morning",
+      "description": "A weekend breakfast with good light and a second cup.",
+      "weights": {
+        "coffee": { "espresso": 3, "milk": 5, "filter": 3, "beans": 1 },
+        "space": { "interior": 8, "comfort": 7, "calm": 5, "work": 0 },
+        "service": { "friendliness": 6, "knowledge": 1, "speed": 0 },
+        "food": { "pastries": 8, "savoury": 7 },
+        "value": 3
+      }
+    },
+    {
+      "id": "grab-and-go",
+      "label": "Grab and go",
+      "description": "A great flat white on the way somewhere else.",
+      "weights": {
+        "coffee": { "espresso": 6, "milk": 9, "filter": 4, "beans": 0 },
+        "space": 0,
+        "service": { "friendliness": 3, "knowledge": 0, "speed": 10 },
+        "food": { "pastries": 3, "savoury": 0 },
+        "value": 6
+      }
+    },
+    {
+      "id": "budget",
+      "label": "On a budget",
+      "description": "Good coffee that doesn't cost a fortune.",
+      "weights": {
+        "coffee": 10,
+        "space": 3,
+        "service": 3,
+        "food": 3,
+        "value": { "price": 10, "worth": 8 }
+      }
+    }
+  ]
+}
